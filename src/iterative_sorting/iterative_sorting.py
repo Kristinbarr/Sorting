@@ -7,24 +7,27 @@ def selection_sort( arr ):
         # TO-DO: find next smallest element
         # (hint, can do in 3 loc (lines of code))
 
-        smallestNum = arr[smallest_index]
-        print('smallestNum', smallestNum)
+        # solution with FOR LOOP:
+        # for j in range(i+1, len(arr)):
+        #     if arr[j] < arr[smallest_index]:
+        #         smallest_index = j
 
-        while smallest_index < len(arr):
-            print('smallest index:', smallest_index)
-            print('curEl...smallestEl: ', arr[cur_index], smallestNum)
-            if (smallestNum > arr[smallest_index]):
-                smallestNum = arr[smallest_index]
-                print('NEW smallest: ', smallestNum)
-            smallest_index += 1
+        # WIP solution with while loop
+        while cur_index < len(arr):
+            if arr[cur_index] < arr[smallest_index]:
+                smallest_index = cur_index
+            cur_index += 1
 
         # TO-DO: swap
-        temp = arr[cur_index]
-        arr[cur_index] = smallestNum
-        arr[smallest_index] = temp
+        # new destructuring swap method
+        arr[i], arr[smallest_index] = arr[smallest_index], arr[i]
+
+        # previous swap method
+        # temp = arr[i]
+        # arr[i] = arr[smallest_index]
+        # arr[smallest_index] = temp
 
         print('NEW array:', arr)
-        print()
 
     return arr
 
