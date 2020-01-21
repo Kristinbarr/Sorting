@@ -56,6 +56,14 @@ def bubble_sort( arr ):
 
 
 # STRETCH: implement the Count Sort function below
+# count sort is good for a small range of values
 def count_sort( arr, maximum=-1 ):
+    # iterate through arr and find range
+    # create a new dict with range of values ex: 0-9
+    # iterate through array and count up values into dict
+    # reassign the dict value to itself and the value to the left(one int less)
+    # create an empty duplicate arr with same length of the og
+    # iterate through original array
+    # place values of og array in the dict value
 
     return arr
