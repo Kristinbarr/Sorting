@@ -8,14 +8,16 @@ def selection_sort( arr ):
         # (hint, can do in 3 loc (lines of code))
 
         # solution with FOR LOOP:
-        # for j in range(i+1, len(arr)):
-        #     if arr[j] < arr[smallest_index]:
-        #         smallest_index = j
+        # for cur_index in range(i+1, len(arr)):
+        #     if arr[cur_index] < arr[smallest_index]:
+        #         smallest_index = cur_index
 
         # WIP solution with while loop
         while cur_index < len(arr):
+            # if left num is less, set it's index to small index
             if arr[cur_index] < arr[smallest_index]:
                 smallest_index = cur_index
+            #  iterate for the while loop
             cur_index += 1
 
         # TO-DO: swap
@@ -27,13 +29,28 @@ def selection_sort( arr ):
         # arr[i] = arr[smallest_index]
         # arr[smallest_index] = temp
 
-        print('NEW array:', arr)
-
     return arr
 
 
 # TO-DO:  implement the Bubble Sort function below
 def bubble_sort( arr ):
+    #instantiate swaped variable to true to enter while loop
+    swaped = True
+
+    while swaped:
+        # reset swaped variable
+        swaped = False
+        # iterate through arr
+        for i in range(0, len(arr)-1):
+            # set variables for comparison nums
+            first = arr[i]
+            second = arr[i+1]
+            # if right side is less than, swap
+            if first > second:
+                arr[i] = second
+                arr[i+1] = first
+                # since swap happened, set to True
+                swaped = True
 
     return arr
 
