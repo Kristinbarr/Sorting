@@ -36,12 +36,14 @@ def selection_sort( arr ):
 def bubble_sort( arr ):
     #instantiate swaped variable to true to enter while loop
     swaped = True
-
+    print('starting arr:', arr)
     while swaped:
+        print('while')
         # reset swaped variable
         swaped = False
         # iterate through arr
         for i in range(0, len(arr)-1):
+            print('inside for loop')
             # set variables for comparison nums
             first = arr[i]
             second = arr[i+1]
@@ -51,7 +53,8 @@ def bubble_sort( arr ):
                 arr[i+1] = first
                 # since swap happened, set to True
                 swaped = True
-
+                print('swapped arr:', arr)
+    print('finished: ', arr)
     return arr
 
 
