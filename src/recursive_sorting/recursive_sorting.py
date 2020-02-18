@@ -1,55 +1,60 @@
 # TO-DO: complete the helper function below to merge 2 sorted arrays
-def merge(left, right):
-    total_elements = len(left) + len(right)
-    merged_arr = [0] * total_elements
-    # TO-DO
-    # create indexes to iterate through each side's
+def merge( arrA, arrB ):
+    # total of left + right items
+    elements = len( arrA ) + len( arrB )
+    # create an arr of placeholder items
+    merged_arr = [None] * elements
+
+    print('left', arrA)
+    print('right', arrB)
+
     a = 0
     b = 0
 
-    # starting at beginning of `a` and `b`
-    for i in range(0, total_elements):
-
-        if a >= len(left): # if there are no more elements in left side
-            merged_arr[i] = right[b] # merge from right side
+    # for all elements:
+    for i in range(elements):
+        # if arrA is merged, next el in arrB goes to merged arr
+        if a >= len(arrA):
+            merged_arr[i] = arrB[b]
             b += 1
-
-        elif b >= len(right): # if no elements in right side
-            merged_arr[i] = left[a] # merge from left side
+        # elif arrB is merged, next el in arrA goes to merged arr
+        elif b >= len(arrB):
+            merged_arr[i] = arrA[a]
+            a += 1
+        # elif next el in arrA is smaller, add to merged arr
+        elif arrA[a] < arrB[b]:
+            merged_arr[i] = arrA[a]
             a += 1
 
-        elif left[a] < right[b]: # check 1st el in lists for greater el
-            merged_arr[i]= left[a]
-            a += 1
-
-        else: # else case if right element is greater then left
-            merged_arr[i] = right[b]
+        # elif next el in arrB is smaller, add to merged arr
+        else:
+            merged_arr[i] = arrB[b]
             b += 1
-        # compare the next value of each
-            # add smallest to `merged_arr`
 
-    print('HELPER MERGED ARR:', merged_arr)
     return merged_arr
 
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort( arr ):
-    # TO-DO
+    # base case
+    if len(arr) <= 1:
+        return arr
 
+    # divide:
     if len(arr) > 1:
-        left = arr[:len(arr) // 2] # slice to get left half
-        right = arr[len(arr) // 2:] # slice to get right half
+        # divide left: slice starting at 0, and splitting the right in half
+        print('MERGE_SORT left', arr[0:len(arr) // 2])
+        left = merge_sort( arr[0 : len(arr) // 2 ] )
+        # right side is arr right half 
+        print('MERGE SORT right', arr[ len(arr) // 2 : len(arr) ])
+        right = merge_sort( arr[ len(arr) // 2 : ] )
 
-        # recursively call merge_sort() on LHS
-        print("left", left)
-        left = merge_sort(left)
-        # recursively call merge_sort() on RHS
-        print("right", right)
-        right = merge_sort(right)
-        # merge sorted pieces
-        return merge(left, right)
+    # merge peices together with merge()
+    arr = merge(left, right)
     return arr
 
+
+print(merge_sort([2, 1, 5, 4, 3]))
 
 # STRETCH: implement an in-place merge sort algorithm
 def merge_in_place(arr, start, mid, end):
@@ -57,7 +62,7 @@ def merge_in_place(arr, start, mid, end):
 
     return arr
 
-def merge_sort_in_place(arr, l, r):
+def merge_sort_in_place(arr, l, r): 
     # TO-DO
 
     return arr
