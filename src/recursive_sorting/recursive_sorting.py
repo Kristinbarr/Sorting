@@ -13,23 +13,31 @@ def merge( arrA, arrB ):
 
     # for all elements:
     for i in range(elements):
-        # if arrA is merged, next el in arrB goes to merged arr
-        if a >= len(arrA):
-            merged_arr[i] = arrB[b]
-            b += 1
-        # elif arrB is merged, next el in arrA goes to merged arr
-        elif b >= len(arrB):
-            merged_arr[i] = arrA[a]
-            a += 1
-        # elif next el in arrA is smaller, add to merged arr
-        elif arrA[a] < arrB[b]:
-            merged_arr[i] = arrA[a]
-            a += 1
+        # # if arrA is merged, next el in arrB goes to merged arr
+        # if a >= len(arrA):
+        #     merged_arr[i] = arrB[b]
+        #     b += 1
+        # # elif arrB is merged, next el in arrA goes to merged arr
+        # elif b >= len(arrB):
+        #     merged_arr[i] = arrA[a]
+        #     a += 1
+        # # elif next el in arrA is smaller, add to merged arr
+        # elif arrA[a] < arrB[b]:
+        #     merged_arr[i] = arrA[a]
+        #     a += 1
 
-        # elif next el in arrB is smaller, add to merged arr
-        else:
-            merged_arr[i] = arrB[b]
-            b += 1
+        # # elif next el in arrB is smaller, add to merged arr
+        # else:
+        #     merged_arr[i] = arrB[b]
+        #     b += 1
+
+        # attempting solution without subindexes
+        # if length of both arrays are at least 1
+        if len(arrA) and len(arrB):
+            # compare first and second elements
+            if arrA[0] < arrB[0]:
+                pass
+
 
     return merged_arr
 
